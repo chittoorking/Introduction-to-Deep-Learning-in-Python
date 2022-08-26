@@ -32,7 +32,7 @@ model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accurac
 early_stopping_monitor = EarlyStopping(patience=2)
 
 # Fit the model
-model.fit(predictors,target,nb_epoch=30,validation_split=0.3,callbacks=[early_stopping_monitor])
+model.fit(predictors,target,epochs=30,validation_split=0.3,callbacks=[early_stopping_monitor])
 
 output:
 Train on 623 samples, validate on 268 samples
