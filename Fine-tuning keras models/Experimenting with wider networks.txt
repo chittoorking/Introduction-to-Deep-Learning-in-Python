@@ -44,3 +44,6 @@ plt.plot(model_1_training.history['val_loss'], 'r', model_2_training.history['va
 plt.xlabel('Epochs')
 plt.ylabel('Validation score')
 plt.show()
+
+
+The blue model is the one you made, the red is the original model. Your model had a lower loss value, so it is the better model. Nice job!
