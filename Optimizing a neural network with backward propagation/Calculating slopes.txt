@@ -8,7 +8,7 @@ Calculate the error, which is preds minus target. Notice that this error corresp
 Calculate the slope of the loss function with respect to the prediction. To do this, you need to take the product of input_data and error and multiply that by 2.
 
 # Calculate the predictions: preds
-preds = weights*input_data
+preds = (weights*input_data).sum()
 
 # Calculate the error: error
 error = preds - target
@@ -20,4 +20,4 @@ slope = 2 * error * input_data
 print(slope)
 
 output:
-[ 0 16 18]
+[14 28 42]
