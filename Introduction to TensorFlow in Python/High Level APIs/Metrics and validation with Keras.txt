@@ -1,0 +1,82 @@
+We trained a model to predict sign language letters in the previous exercise, but it is unclear how successful we were in doing so.
+In this exercise, we will try to improve upon the interpretability of our results.
+Since we did not use a validation split, we only observed performance improvements within the training set;
+however, it is unclear how much of that was due to overfitting. 
+Furthermore, since we did not supply a metric, we only saw decreases in the loss function, which do not have any clear interpretation.
+
+Note that keras has been imported for you from tensorflow.
+
+Instructions
+Set the first dense layer to have 32 nodes, use a sigmoid activation function, and have an input shape of (784,).
+Use the root mean square propagation optimizer, a categorical crossentropy loss, and the accuracy metric.
+Set the number of epochs to 10 and use 10% of the dataset for validation.
+
+# Define sequential model
+model = keras.Sequential()
+
+# Define the first layer
+model.add(keras.layers.Dense(32, activation='sigmoid', input_shape=(784,)))
+
+# Add activation function to classifier
+model.add(keras.layers.Dense(4, activation='softmax'))
+
+# Set the optimizer, loss function, and metrics
+model.compile(optimizer='RMSprop', loss='categorical_crossentropy', metrics=['accuracy'])
+
+# Add the number of epochs and the validation split
+model.fit(sign_language_features, sign_language_labels, epochs=10, validation_split=0.1)
+
+
+output:
+
+<script.py> output:
+    Epoch 1/10
+    
+ 1/29 [>.............................] - ETA: 42s - loss: 1.4231 - accuracy: 0.3125
+19/29 [==================>...........] - ETA: 0s - loss: 1.3210 - accuracy: 0.3602 
+29/29 [==============================] - 2s 20ms/step - loss: 1.2651 - accuracy: 0.4171 - val_loss: 1.2242 - val_accuracy: 0.2900
+    Epoch 2/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 1.3104 - accuracy: 0.2500
+21/29 [====================>.........] - ETA: 0s - loss: 1.0197 - accuracy: 0.6845
+29/29 [==============================] - 0s 3ms/step - loss: 0.9925 - accuracy: 0.6841 - val_loss: 1.0445 - val_accuracy: 0.5900
+    Epoch 3/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.9369 - accuracy: 0.7812
+23/29 [======================>.......] - ETA: 0s - loss: 0.8493 - accuracy: 0.7799
+29/29 [==============================] - 0s 3ms/step - loss: 0.8422 - accuracy: 0.7709 - val_loss: 0.8102 - val_accuracy: 0.7000
+    Epoch 4/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.8435 - accuracy: 0.7188
+23/29 [======================>.......] - ETA: 0s - loss: 0.7034 - accuracy: 0.7976
+29/29 [==============================] - 0s 3ms/step - loss: 0.7009 - accuracy: 0.8098 - val_loss: 0.7993 - val_accuracy: 0.6900
+    Epoch 5/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.7524 - accuracy: 0.7812
+27/29 [==========================>...] - ETA: 0s - loss: 0.6131 - accuracy: 0.8623
+29/29 [==============================] - 0s 3ms/step - loss: 0.6137 - accuracy: 0.8632 - val_loss: 0.6350 - val_accuracy: 0.7300
+    Epoch 6/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.7238 - accuracy: 0.7188
+22/29 [=====================>........] - ETA: 0s - loss: 0.5386 - accuracy: 0.8778
+29/29 [==============================] - 0s 3ms/step - loss: 0.5383 - accuracy: 0.8821 - val_loss: 0.7719 - val_accuracy: 0.5900
+    Epoch 7/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.8442 - accuracy: 0.5000
+22/29 [=====================>........] - ETA: 0s - loss: 0.4747 - accuracy: 0.9162
+29/29 [==============================] - 0s 4ms/step - loss: 0.4764 - accuracy: 0.9077 - val_loss: 0.4521 - val_accuracy: 0.9800
+    Epoch 8/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.4912 - accuracy: 0.9375
+19/29 [==================>...........] - ETA: 0s - loss: 0.4429 - accuracy: 0.9211
+29/29 [==============================] - 0s 6ms/step - loss: 0.4262 - accuracy: 0.9244 - val_loss: 0.5926 - val_accuracy: 0.7100
+    Epoch 9/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.4262 - accuracy: 0.8125
+16/29 [===============>..............] - ETA: 0s - loss: 0.3907 - accuracy: 0.9355
+29/29 [==============================] - 0s 5ms/step - loss: 0.3777 - accuracy: 0.9433 - val_loss: 0.3892 - val_accuracy: 0.9400
+    Epoch 10/10
+    
+ 1/29 [>.............................] - ETA: 0s - loss: 0.3319 - accuracy: 1.0000
+18/29 [=================>............] - ETA: 0s - loss: 0.3562 - accuracy: 0.9479
+29/29 [==============================] - 0s 6ms/step - loss: 0.3376 - accuracy: 0.9511 - val_loss: 0.3641 - val_accuracy: 0.8900
