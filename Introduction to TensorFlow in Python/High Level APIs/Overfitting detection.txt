@@ -232,3 +232,7 @@ output:
     
 1/1 [==============================] - ETA: 0s - loss: 0.1323 - accuracy: 1.0000
 1/1 [==============================] - 0s 33ms/step - loss: 0.1323 - accuracy: 1.0000 - val_loss: 0.6412 - val_accuracy: 0.6923
+
+
+You may have noticed that the validation loss, val_loss, was substantially higher than the training loss, loss.
+Furthermore, if val_loss started to increase before the training process was terminated, then we may have overfitted. When this happens, you will want to try decreasing the number of epochs.
