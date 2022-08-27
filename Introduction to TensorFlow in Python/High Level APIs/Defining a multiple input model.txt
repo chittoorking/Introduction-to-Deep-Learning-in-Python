@@ -52,3 +52,9 @@ Trainable params: 18,944
 Non-trainable params: 0
 __________________________________________________________________________________________________
 None
+
+
+Nice work! Notice that the .summary() method yields a new column: connected to. 
+This column tells you how layers connect to each other within the network.
+We can see that dense_2, for instance, is connected to the input_2 layer.
+We can also see that the add layer, which merged the two models, connected to both dense_1 and dense_3.
