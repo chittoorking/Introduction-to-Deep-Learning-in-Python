@@ -1,0 +1,18 @@
+
+
+Given the computational graph above, we want to calculate the derivatives for the leaf nodes (x, y and z). 
+To get you started we already calculated the results of the forward pass (in red) in addition to calculating the derivatives of f and q.
+
+The rules for derivative computations have been given in the table below:
+
+
+
+
+
+
+
+
+
+
+
+The Derivative of x is 5, the derivative of y is 5, the derivative of z is 1.
