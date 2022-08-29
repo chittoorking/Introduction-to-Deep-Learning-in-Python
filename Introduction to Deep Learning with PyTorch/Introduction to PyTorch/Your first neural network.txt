@@ -1,0 +1,25 @@
+You are going to build a neural network in PyTorch, using the hard way. Your input will be images of size (28, 28), so images containing 784 pixels.
+Your network will contain an input_layer (provided for you), a hidden layer with 200 units, and an output layer with 10 classes.
+The input layer has already been created for you. You are going to create the weights, and then do matrix multiplications, getting the results from the network.
+
+Instructions
+Initialize with random numbers two matrices of weights, called weight_1 and weight_2.
+Set the result of input_layer times weight_1 to hidden_1. Set the result of hidden_1 times weight_2 to output_layer.
+
+
+# Initialize the weights of the neural network
+weight_1 = torch.rand(784,200)
+weight_2 = torch.rand(200,10)
+
+# Multiply input_layer with weight_1
+hidden_1 = torch.matmul(input_layer, weight_1)
+
+# Multiply hidden_1 with weight_2
+output_layer = torch.matmul(hidden_1,weight_2)
+print(output_layer)
+
+
+output:
+
+tensor([19552.2695, 19838.5742, 17756.0293, 19245.7949, 19173.1289, 20808.1895,
+        19761.0625, 18921.4043, 20039.8457, 18861.8887])
