@@ -1,0 +1,11 @@
+Remember the exercise in forward pass? Now that you know how to calculate derivatives, let's make a step forward and start calculating the gradients (derivatives of tensors) of the computational graph you built back then. We have already initialized for you three random tensors of shape (1000, 1000) called x, y and z. First, we multiply tensors x and y, then we do an elementwise multiplication of their product with tensor z, and then we compute its mean. In the end, we compute the derivatives.
+
+The main difference from the previous exercise is the scale of the tensors. While before, tensors x, y and z had just 1 number, now they each have 1 million numbers.
+
+
+![https://assets.datacamp.com/production/repositories/4094/datasets/ab707279d7be2835c17787a38c6e2e54f6d89409/graph_exercise.jpg]
+Instructions
+100 XP
+Multiply tensors x and y, put the product in tensor q.
+Do an elementwise multiplication of tensors z with q.
+Calculate the gradients.
