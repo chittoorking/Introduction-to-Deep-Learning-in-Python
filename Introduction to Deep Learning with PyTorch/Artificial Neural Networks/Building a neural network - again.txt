@@ -1,0 +1,26 @@
+You haven't created a neural network since the end of the first chapter, so this is a good time to build one (practice makes perfect). 
+Build a class for a neural network which will be used to train on the MNIST dataset. 
+The dataset contains images of shape (28, 28, 1), so you should deduct the size of the input layer. 
+For hidden layer use 200 units, while for output layer use 10 units (1 for each class).
+For activation function, use relu in a functional way (nn.Functional is already imported as F).
+
+For context, the same net will be trained and used to make predictions in the next two exercises.
+
+Instructions
+Define the class called Net which inherits from nn.Module.
+In the __init__() method, define the parameters for the two fully connected layers.
+In the .forward() method, do the forward step.
+
+# Define the class Net
+class Net(nn.Module):
+    def __init__(self):    
+    	# Define all the parameters of the net
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(28 * 28 * 1, 200)
+        self.fc2 = nn.Linear(200,10)
+
+    def forward(self, x):   
+    	# Do the forward pass
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
