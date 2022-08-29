@@ -26,3 +26,9 @@ print('The testing set accuracy of the network is: %d %%' % (100 * correct / tot
 output:
 
 The testing set accuracy of the network is: 82 %
+
+
+
+for i, data in enumerate(trainloader, 0): restarts the trainloader iterator on each epoch. That is how python iterators work. Let’s take a simpler example for data in trainloader: python starts by calling trainloader.__iter__() to set up the iterator, this returns an object with a .next() method. Then python calls the .next() method of this object in order to get the first and subsequent values used by the for loop. enumerate just wraps the trainloader iterator in order to make it return a counter along with the value at each iteration.
+
+If the batch number doesn’t divide the data set size, then I guess the last batch will simply be smaller than the others.
