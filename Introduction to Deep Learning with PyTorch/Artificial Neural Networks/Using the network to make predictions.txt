@@ -1,0 +1,28 @@
+Now that you have trained the network, use it to make predictions for the data in the testing set.
+The network is called model (same as in the previous exercise), and the loader is called test_loader. We have already initialized variables total and correct to 0.
+
+Instructions
+Set the network in testing (eval) mode.
+Put each image into a vector using inputs.view(-1, number_of_features)
+where the number of features should be deducted by multiplying spatial dimensions (shape) of the image.
+Do the forward pass and put the predictions in output variable.
+
+# Set the model in eval mode
+model.eval()
+
+for i, data in enumerate(test_loader, 0):
+    inputs, labels = data
+    
+    # Put each image into a vector
+    inputs = inputs.view(-1, 28*28*1)
+    
+    # Do the forward pass and get the predictions
+    outputs = model(inputs)
+    _, outputs = torch.max(outputs.data, 1)
+    total += labels.size(0)
+    correct += (outputs == labels).sum().item()
+print('The testing set accuracy of the network is: %d %%' % (100 * correct / total))
+
+output:
+
+The testing set accuracy of the network is: 82 %
