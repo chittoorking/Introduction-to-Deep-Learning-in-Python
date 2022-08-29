@@ -3,7 +3,7 @@ Remember the exercise in forward pass? Now that you know how to calculate deriva
 The main difference from the previous exercise is the scale of the tensors. While before, tensors x, y and z had just 1 number, now they each have 1 million numbers.
 
 
-![https://assets.datacamp.com/production/repositories/4094/datasets/ab707279d7be2835c17787a38c6e2e54f6d89409/graph_exercise.jpg]
+![Image](https://assets.datacamp.com/production/repositories/4094/datasets/ab707279d7be2835c17787a38c6e2e54f6d89409/graph_exercise.jpg)
 Instructions
 100 XP
 Multiply tensors x and y, put the product in tensor q.
