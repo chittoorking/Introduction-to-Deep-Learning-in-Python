@@ -1,0 +1,23 @@
+Here you are going to practice using max-pooling in both OOP and functional way, and see for yourself that the produced results are the same.
+We have already created and printed the image for you, and imported torch library in addition to torch.nn and torch.nn.Functional as F packages.
+
+Instructions
+Build a max-pooling operator with size 2.
+Apply the max-pooling operator in the image (loaded as im).
+Use a max-pooling operator in functional way in the image.
+Print the results of both cases.
+
+
+tensor([[[[ 8.,  1.,  2.,  5.,  3.,  1.],
+          [ 6.,  0.,  0., -5.,  7.,  9.],
+          [ 1.,  9., -1., -2.,  2.,  6.],
+          [ 0.,  4.,  2., -3.,  4.,  3.],
+          [ 2., -1.,  4., -1., -2.,  3.],
+          [ 2., -4.,  5.,  9., -7.,  8.]]]])
+          
+tensor([[[[8., 5., 9.],
+          [9., 2., 6.],
+          [2., 9., 8.]]]])
+tensor([[[[8., 5., 9.],
+          [9., 2., 6.],
+          [2., 9., 8.]]]])
