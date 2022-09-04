@@ -1,0 +1,28 @@
+Similarly to what you did in Chapter 2, you are going to train a neural network.
+This time however, you will train the CNN you built in the previous lesson, instead of a fully connected network. 
+The packages you need have been imported for you and the network (called net) instantiated. 
+The cross-entropy loss function (called criterion) and the Adam optimizer (called optimizer) are also available.
+We have subsampled the training set so that the training goes faster, and you are going to use a single epoch.
+
+Instructions
+Compute the predictions from the net.
+Using the predictions and the labels, compute the loss function.
+Compute the gradients for each weight.
+Update the weights using the optimizer.
+
+
+for i, data in enumerate(train_loader, 0):
+    inputs, labels = data
+    optimizer.zero_grad()
+
+    # Compute the forward pass
+    outputs = net(inputs)
+        
+    # Compute the loss function
+    loss = criterion(outputs,labels)
+        
+    # Compute the gradients
+    loss.backward()
+    
+    # Update the weights
+    optimizer.step()
