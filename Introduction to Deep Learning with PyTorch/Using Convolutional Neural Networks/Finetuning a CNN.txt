@@ -1,0 +1,38 @@
+Previously, you trained a model to classify handwritten digits and saved the model parameters to my_net.pth.
+Now you're going to classify handwritten letters, but you have a smaller training set.
+
+In the first step, you'll create a new model using this training set, but the accuracy will be poor. 
+Next, you'll perform the same training, but you'll start with the parameters from your digit classifying model.
+Even though digits and letters are two different classification problems, you'll see that using information from your previous model will dramatically improve this one.
+
+Instructions
+Create a new model using the Net() module.
+Change the number of output units, to the number of classifications for letters.
+
+# Create a new model
+model = Net()
+
+# Change the number of out channels
+model.fc = nn.Linear(7 * 7 * 512, 26)
+
+# Train and evaluate the model
+model.train()
+train_net(model, optimizer, criterion)
+print("Accuracy of the net is: " + str(model.eval()))
+
+# Repeat the training process, but first load the digit classifier parameters from my_net.pth.
+
+# Create a model using
+model = Net()
+
+# Load the parameters from the old model
+model.load_state_dict(torch.load('my_net.pth'))
+
+# Change the number of out channels
+model.fc = nn.Linear(7 * 7 * 512, 26)
+
+# Train and evaluate the model
+model.train()
+train_net(model, optimizer, criterion)
+print("Accuracy of the net is: " + str(model.eval()))
+
