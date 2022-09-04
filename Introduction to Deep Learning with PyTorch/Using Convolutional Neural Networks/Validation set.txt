@@ -1,0 +1,24 @@
+You saw the need for validation set in the previous video. Problem is that the datasets typically are not separated into training, validation and testing.
+It is your job as a data scientist to split the dataset into training, testing and validation.
+The easiest (and most used) way of doing so is to do a random splitting of the dataset. 
+In PyTorch, that can be done using SubsetRandomSampler object. You are going to split the training part of MNIST dataset into training and validation.
+After randomly shuffling the dataset, use the first 55000 points for training, and the remaining 5000 points for validation.
+
+Instructions
+Use numpy.arange() to create an array containing numbers [0, 59999] and then randomly shuffle the array.
+In the train_loader using SubsetRandomSampler() use the first 55k points for training.
+In the val_loader use the remaining 5k points for validation.
+
+# Shuffle the indices
+indices = np.arange(60000)
+np.random.shuffle(indices)
+
+# Build the train loader
+train_loader = torch.utils.data.DataLoader(datasets.MNIST('mnist', download=True, train=True,
+                     transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])),
+                     batch_size=64, shuffle=False, sampler=torch.utils.data.SubsetRandomSampler(indices[:55000]))
+
+# Build the validation loader
+val_loader = torch.utils.data.DataLoader(datasets.MNIST('mnist', download=True, train=True,
+                   transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])),
+                   batch_size=64, shuffle=False, sampler=torch.utils.data.SubsetRandomSampler(indices[55000:]))
