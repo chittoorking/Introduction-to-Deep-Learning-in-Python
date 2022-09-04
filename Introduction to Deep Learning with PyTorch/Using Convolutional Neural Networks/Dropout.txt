@@ -1,0 +1,42 @@
+You saw that dropout is an effective technique to avoid overfitting.
+Typically, dropout is applied in fully-connected neural networks, or in the fully-connected layers of a convolutional neural network. 
+You are now going to implement dropout and use it on a small fully-connected neural network.
+
+For the first hidden layer use 200 units, for the second hidden layer use 500 units, and for the output layer use 10 units (one for each class).
+For the activation function, use ReLU. Use .Dropout() with strength 0.5, between the first and second hidden layer.
+Use the sequential module, with the order being: fully-connected, activation, dropout, fully-connected, activation, fully-connected.
+
+Instructions 
+Implement the __init__ method, based on the description of the network in the context.
+
+class Net(nn.Module):
+    def __init__(self):
+        
+        # Define all the parameters of the net
+        self.classifier = nn.Sequential(
+            nn.Linear(28*28, 200),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.5),
+            nn.Linear(200,500),
+            nn.ReLU(inplace=True),
+            nn.Linear(500,10))
+            
+#Apply the forward pass in the forward() method.
+
+
+class Net(nn.Module):
+    def __init__(self):
+        
+        # Define all the parameters of the net
+        self.classifier = nn.Sequential(
+            nn.Linear(28*28, 200),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.5),
+            nn.Linear(200, 500),
+            nn.ReLU(inplace=True),
+            nn.Linear(500, 10))
+        
+    def forward(self, x):
+    
+    	# Do the forward pass
+        return self.classifier(x)
