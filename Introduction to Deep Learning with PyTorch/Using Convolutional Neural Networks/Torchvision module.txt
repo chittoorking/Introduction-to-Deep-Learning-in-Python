@@ -1,0 +1,28 @@
+You already finetuned a net you had pretrained. 
+In practice though, it is very common to finetune CNNs that someone else (typically the library's developers) have pretrained in ImageNet. 
+Big networks still take a lot of time to be trained on large datasets, 
+and maybe you cannot afford to train a large network on a dataset of 1.2 million images on your laptop.
+
+Instead, you can simply download the network and finetune it on your dataset. That's what you will do right now. 
+You are going to assume that you have a personal dataset, containing the images from all your last 7 holidays. 
+You want to build a neural network that can classify each image depending on the holiday it comes from.
+However, since the dataset is so small, you need to use the finetuning technique.
+
+Instructions
+Import the module that lets you download state-of-the-art CNNs.
+Download and load a pretrained ResNet18 network.
+Freeze all the layers bar the final one.
+Change the last layer to correspond to the number of classes (7) in your dataset.
+
+# Import the module
+import torchvision
+
+# Download resnet18
+model = torchvision.models.resnet18(pretrained=True)
+
+# Freeze all the layers bar the last one
+for param in model.parameters():
+    param.requires_grad = False
+
+# Change the number of output units
+model.fc = nn.Linear(512, 7)
