@@ -1,0 +1,35 @@
+You are going to build your first convolutional neural network. You're going to use the MNIST dataset as the dataset, which is made of handwritten digits from 0 to 9. 
+The convolutional neural network is going to have 2 convolutional layers, each followed by a ReLU nonlinearity, and a fully connected layer.
+We have already imported torch and torch.nn as nn.
+Remember that each pooling layer halves both the height and the width of the image, so by using 2 pooling layers, the height and width are 1/4 of the original sizes.
+MNIST images have shape (1, 28, 28)
+
+For the moment, you are going to implement the __init__ method of the net. In the next exercise, you will implement the .forward() method.
+
+NB: We need 2 pooling layers, but we only need to instantiate a pooling layer once, because each pooling layer will have the same configuration. 
+Instead, we will use self.pool twice in the next exercise.
+
+Instructions
+
+Instantiate two convolutional filters: the first one should have 5 channels, while the second one should have 10 channels. 
+The kernel_size for both of them should be 3, and both should use padding=1. Use the names of the arguments (instead of using 1, use padding=1).
+Instantiate a ReLU() nonlinearity.
+Instantiate a max pooling layer which halves the size of the image in both directions.
+Instantiate a fully connected layer which connects the units with the number of classes (we are using MNIST, so there are 10 classes).
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        
+        # Instantiate two convolutional layers
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=5, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=5, out_channels=10, kernel_size=3, padding=1)
+        
+        # Instantiate the ReLU nonlinearity
+        self.relu = nn.ReLU()
+        
+        # Instantiate a max pooling layer
+        self.pool = nn.MaxPool2d(2, 2)
+        
+        # Instantiate a fully connected layer
+        self.fc = nn.Linear(7 * 7 * 10, 10)
